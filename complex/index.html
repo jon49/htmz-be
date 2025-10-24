@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+  <main>
+
+    <nav><a href="/">Simple Implementation</a> | Morphdom Implementation</nav>
+
+    <fieldset id="themeForm">
+      <legend>Theme</legend>
+      <label><input type="radio" name="theme" value="light"> Light</label>
+      <label><input type="radio" name="theme" value="dark"> Dark</label>
+      <label><input type="radio" name="theme" value="default"> Default</label>
+    </fieldset>
+
+    <script>
+      (() => {
+        const theme = localStorage.getItem('theme') || 'default';
+        if (theme !== 'default') {
+          document.querySelector(`input[name="theme"][value="${theme}"]`).checked = true;
+        } else {
+          document.querySelector(`input[name="theme"][value="default"]`).checked = true;
+        }
+        themeForm.addEventListener('change', e => {
+          if (e.target.value === 'default') {
+            localStorage.removeItem('theme');
+          } else {
+            localStorage.setItem('theme', e.target.value);
+          }
+        });
+      })()
+    </script>
+
+    <p><em><a href="https://leanrada.com/htmz/">HTMZ</a> is a minimalist HTML
+      microframework for creating interactive and modular web user interfaces with
+      the familiar simplicity of plain HTML.</em> This is an "extension" that I have
+      made to make it even more powerful and flexible. This extension adds in
+      morphdom support and a custom event when the swap is done
+      <code>hz:completed</code>.</p>
+
+    <p><span>Features:</span></p>
+    <ul>
+      <li>Automatic partial page updates</li>
+      <li>Seamless form submissions</li>
+      <li>Back end driven hypermedia requests. The back end determines how to update the front end.</li>
+      <li>Morphdom, which allows for diffing on the DOM elements for complex UIs.</li>
+      <li>Custom event on completion <code>hz:completed</code>.</li>
+      <li>Lightweight and easy to use</li>
+    </ul>
+
+    <p>This implementation of HTMZ uses four APIs to determine how the updates are applied.</p>
+
+    <ol>
+      <li><code>id</code>
+        <p>The id attribute matches the element that will be updated. It
+        replaces the original element with the new content. This is the
+        simplicist and easiest way to perform updates.</p>
+      </li>
+      <li><code>hz-target</code>
+        <p>uses the query selector to determine what element to update.</p>
+      </li>
+      <li><code>hz-swap</code>
+        <p>determines how the content is inserted. There are four different values which can be used:</p>
+        <ul>
+          <li><code>replaceWith</code> - replaces the content of the target
+          element (default). In practice this never needs to be explicit.
+            <ul class="mb-0">
+              <li>If it is not a document fragment then Morphdom will be used to diff the elements.</li>
+            </ul>
+          </li>
+          <li><code>append</code> - appends the content to the end of the target element</li>
+          <li><code>prepend</code> - prepends the content to the beginning of the target element</li>
+          <li><code>before</code> - inserts the content before the target element</li>
+          <li><code>after</code> - inserts the content after the target element</li>
+        </ul>
+      </li>
+      <li><code>template</code>
+        <p>When you do not have a root HTML element use the <code>template</code>
+          element. This is useful for inserting table rows, list items, and other
+          elements that do not have a single root element. When you return an
+          empty <code>template</code> it will delete the old template when you
+          use the strategy <code>replaceWith</code> (which is default, of course).</p>
+      </li>
+    </ol>
+
+    <a id="examples" href="/examples.html" target="htmz">Loading examples&hellip;</a>
+    <script id="scriptLoader">
+      (() => {
+        // Load the examples template into the main page by triggering the examples link.
+        const scriptLoader = document.getElementById('scriptLoader')
+        // Wait for htmz iframe to be ready before clicking the link
+        function waitForHtmz() {
+          const htmzFrame = document.querySelector('iframe[name="htmz"]')
+          if (htmzFrame) {
+            document.getElementById('examples').click()
+            scriptLoader.remove()
+          } else {
+            setTimeout(waitForHtmz, 10)
+          }
+        }
+        waitForHtmz()
+      })()
+    </script>
+
+  </main>
+
+  <form id="post" method="post" target="htmz"></form>
+  <form id="get" target="htmz"></form>
+
+  <script src="/js/sw-loader.js"></script>
+  <script src="/js/htmz-morph.js" type="module"></script>
+  <script src="/js/x-html.js"></script>
+</body>
+
+</html>

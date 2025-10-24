@@ -1,0 +1,50 @@
+<template id="examples">
+  <h2>Demos</h2>
+
+  <h3>Simple Todo</h3>
+
+  <p>This example shows a simple todo list implementation using HTMZ.</p>
+
+  <details>
+    <summary>View HTML Response</summary>
+    <code id="todoResponse">No data has been returned yet.</code>
+  </details>
+
+  <ul id="list"></ul>
+
+  <form method="post" action="/new" target="htmz" onsubmit="setTimeout(()=>this.reset())">
+    <input type="text" name="item" placeholder="Item">
+  </form>
+
+  <div id="events"></div>
+
+  <hr>
+
+  <h3>Dynamic Table</h3>
+
+  <p>This example demonstrates dynamic table row addition using HTMZ. Note that
+  the table elements need to be wrapped in <code>&lt;template&gt;</code>
+  tags.</p>
+
+  <details>
+    <summary>View HTML Response</summary>
+    <pre id="tableResponse">No data has been returned yet.</pre>
+  </details>
+
+  <table>
+    <thead>
+      <th><button form="get" formaction="/new-row">Add Row</button></th>
+      <th><button form="get" formaction="/clear-table">Clear Table</button></th>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h3>Replace a link with new content.</h3>
+
+  <details>
+    <summary>View HTML Response</summary>
+    <pre id="linkResponse">No data has been returned yet.</pre>
+  </details>
+
+  <a id="link" href="/link" target="htmz">Get secret message.</a>
+</template>
