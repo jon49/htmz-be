@@ -90,12 +90,6 @@ input[type="button"] {
   border-radius: 3px;
 }
 
-/* Nested details should have left padding */
-details details {
-  padding-left: 1em;
-  border-left: 1px solid light-dark(#ccc, #444);
-}
-
 .highlight {
   color: salmon;
 }

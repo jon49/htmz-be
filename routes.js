@@ -30,7 +30,7 @@ export async function routeHandler(url, request) {
   if (url.pathname.endsWith("/new-row/")) {
     let now = new Date()
     let content = html("tableResponse", `
-<template hz-target="tbody" hz-swap="append">
+<template hz-target="tbody" hz-swap="prepend">
   <tr><td>Yes!</td><td>${now.toLocaleDateString()} &mdash; ${now.toLocaleTimeString()}</td></tr>
   <tr><td>No!</td><td>${now.toLocaleDateString()} &mdash; ${now.toLocaleTimeString()}</td></tr>
 </template>`)
@@ -60,10 +60,17 @@ function html(id, content) {
   // let now = Date.now()
   return `
     ${content}
-    <x-html id="${id}" hz-swap="replaceWith">
-      <template>${content}</template>
-    </x-html>
+    <pre id="${id}" hz-swap="replaceWith">${escapeHtml(content)}</pre>
   `
+}
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
 }
 
 function getResponse(content) {
