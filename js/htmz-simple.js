@@ -2,7 +2,6 @@ window.htmz = function htmz(frame) {
   let location = frame.contentWindow?.location
   if (location == null || location.href === "about:blank") return;
 
-  debugger
   let doc = frame.contentDocument
   if (doc == null) return
   for (let el of Array.from(doc.body.children).concat(Array.from(doc.head.children))) {

@@ -86,26 +86,15 @@
     <a id="examples" href="./examples.html" target="htmz">Loading examples&hellip;</a>
     <script id="scriptLoader">
       (() => {
-        const scriptLoader = document.getElementById('scriptLoader')
-        
-        // Add event listener to see what happens when link is clicked
-        document.getElementById('examples').addEventListener('click', (e) => {
-          console.log('Examples link clicked!', e)
-          console.log('Target:', e.target.target)
-          console.log('HTMZ iframe exists:', !!document.querySelector('iframe[name="htmz"]'))
-        })
-        
-        // Simple delay before auto-clicking
-        setTimeout(() => {
-          const htmzFrame = document.querySelector('iframe[name="htmz"]')
-          console.log('Auto-clicking examples link. HTMZ iframe exists:', !!htmzFrame)
-          if (htmzFrame) {
+        function loadExamples() {
+          if (document.querySelector('iframe[name="htmz"]')) {
             document.getElementById('examples').click()
+            scriptLoader.remove()
           } else {
-            console.error('HTMZ iframe not found, cannot auto-click')
+            setTimeout(loadExamples, 10)
           }
-          scriptLoader.remove()
-        }, 500) // Increased delay to 500ms
+        }
+        loadExamples()
       })()
     </script>
 

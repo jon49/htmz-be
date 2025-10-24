@@ -11,7 +11,7 @@ export async function routeHandler(url, request) {
 
     let content = html("todoResponse", `
 <li id="_${now}" hz-target="#list" hz-swap="append">
-    ${item} <button form="post" formaction="/delete?id=_${now}">X</button>
+    ${item} <button form="post" formaction="./delete?id=_${now}">X</button>
 </li>
 <p id=events class=highlight>Added item &mdash; "${item}"!</p>`)
 
