@@ -4,7 +4,7 @@
  * @returns {Response | undefined}
  */
 export async function routeHandler(url, request) {
-  if (url.pathname === "/new/") {
+  if (url.pathname.endsWith("/new/")) {
     let data = await request.formData()
     let item = data.get("item")
     let now = Date.now()
@@ -18,7 +18,7 @@ export async function routeHandler(url, request) {
     return getResponse(content)
   }
 
-  if (url.pathname === "/delete/") {
+  if (url.pathname.endsWith("/delete/")) {
     let id = url.searchParams.get("id")
     let content = html("todoResponse", `
 <template id="${id}"></template>
@@ -27,7 +27,7 @@ export async function routeHandler(url, request) {
     return getResponse(content) 
   }
 
-  if (url.pathname === "/new-row/") {
+  if (url.pathname.endsWith("/new-row/")) {
     let now = new Date()
     let content = html("tableResponse", `
 <template hz-target="tbody" hz-swap="append">
@@ -38,7 +38,7 @@ export async function routeHandler(url, request) {
     return getResponse(content)
   }
 
-  if (url.pathname === "/clear-table/") {
+  if (url.pathname.endsWith("/clear-table/")) {
     let content = html("tableResponse", `
 <template hz-target="tbody">
   <tbody></tbody>
@@ -48,7 +48,7 @@ export async function routeHandler(url, request) {
     return getResponse(content)
   }
 
-  if (url.pathname === "/link/") {
+  if (url.pathname.endsWith("/link/")) {
     let content = html("linkResponse", `
 <p id=link class="highlight"><strong>Whoever first figured out HTMZ is a genius!</strong></p>`)
 

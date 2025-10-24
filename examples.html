@@ -12,7 +12,7 @@
 
   <ul id="list"></ul>
 
-  <form method="post" action="/new" target="htmz" onsubmit="setTimeout(()=>this.reset())">
+  <form method="post" action="./new" target="htmz" onsubmit="setTimeout(()=>this.reset())">
     <input type="text" name="item" placeholder="Item">
   </form>
 
@@ -33,8 +33,8 @@
 
   <table>
     <thead>
-      <th><button form="get" formaction="/new-row">Add Row</button></th>
-      <th><button form="get" formaction="/clear-table">Clear Table</button></th>
+      <th><button form="get" formaction="./new-row">Add Row</button></th>
+      <th><button form="get" formaction="./clear-table">Clear Table</button></th>
     </thead>
     <tbody></tbody>
   </table>
@@ -46,5 +46,5 @@
     <pre id="linkResponse">No data has been returned yet.</pre>
   </details>
 
-  <a id="link" href="/link" target="htmz">Get secret message.</a>
+  <a id="link" href="./link" target="htmz">Get secret message.</a>
 </template>
