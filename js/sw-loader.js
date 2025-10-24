@@ -2,7 +2,7 @@
 (() => {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-        .register(`/sw.js`, { type: "module" })
+        .register(`./sw.js`, { type: "module" })
         .then(_ => {
             console.log("Service worker registered.")
         })
