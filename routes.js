@@ -60,7 +60,7 @@ function html(id, content) {
   // let now = Date.now()
   return `
     ${content}
-    <pre id="${id}" hz-swap="replaceWith">${escapeHtml(content)}</pre>
+    <pre id="${id}">${escapeHtml(content)}</pre>
   `
 }
 
