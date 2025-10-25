@@ -90,6 +90,11 @@ input[type="button"] {
   border-radius: 3px;
 }
 
+nav {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
 .highlight {
   color: salmon;
 }
