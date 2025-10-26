@@ -41,6 +41,7 @@
       <a href="#introduction">Introduction</a> |
       <a href="#documentation">Documentation</a> |
       <a href="#examples">Examples</a> |
+      <a href="#limitations">Limitations</a> |
       <a href="#advanced">Advanced Usage</a>
     </nav>
 
@@ -165,6 +166,44 @@
   <div id="anchorExample">
 <a id="link" href="./link" target="htmz">Get secret message.</a>
   </div>
+
+    <hr>
+
+    <h2 id="limitations">Limitations</h2>
+
+    <p>There are some drawbacks to doing it this one. One of those is that you
+    cannot make two API calls simultaneously. If you find you need to, then
+    either using a different library or create multiple
+    <code>iFrame</code>s.</p>
+
+    <p>Take as an example the two links below. When you click the button it will
+    click the two links simultaneously. But only one completes. In practice this
+    shouldn't happen very often or ever in a real application. But if your
+    application does require multiple API calls then perhaps your application is
+    too complex for this library. Or maybe you could combine the API calls. This
+    could also be a good thing as it prevents forms from being called twice
+    automatically.</p>
+
+    <details>
+      <summary show-html-code="multipleExample">Original Code</summary>
+    </details>
+
+    <details>
+      <summary>HTML Response</summary>
+      <pre id="multipleResponse">No data has been returned yet.</pre>
+    </details>
+
+    <br>
+
+    <div id="multipleExample">
+<button id="multiBtn" onclick="multiLink1.click(); multiLink2.click();">Click me to make two requests simultaneously.</button>
+<br>
+<a id="multiLink1" href="./link?target=multiLink1&another&htmlTarget=multipleResponse" target="htmz">Get secret message 1.</a>
+<br>
+<a id="multiLink2" href="./link?target=multiLink2&another&htmlTarget=multipleResponse" target="htmz">Get secret message 2.</a>
+    </div>
+
+    <hr>
 
     <h2 id="advanced">Advanced Usage</h2>
 
