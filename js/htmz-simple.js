@@ -16,11 +16,11 @@ window.htmz = function htmz(frame) {
     target[swap]?.(el)
   }
 
-  document.dispatchEvent(new CustomEvent("hz:completed", { detail: { location } }))
-
   frame.remove()
   document.body.appendChild(frame)
   location.replace("about:blank")
+
+  document.dispatchEvent(new CustomEvent("hz:completed", { detail: { location } }))
 }
 
 document.body.insertAdjacentHTML("beforeend", `<iframe hidden name=htmz onload="window.htmz(this)"></iframe>`)

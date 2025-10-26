@@ -102,3 +102,54 @@ nav {
 .mb-0 {
   margin: 0;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+#themeForm {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: light-dark(rgba(255,255,255,0.8), rgba(20,20,20,0.8));
+  padding: 0.3em;
+  border-radius: 5px;
+  box-shadow: 0 0 10px light-dark(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+  line-height: 1.5em;
+}
+
+#themeForm > label {
+  font-size: 2em;
+  transition: transform 0.2s ease;
+}
+
+#themeForm > label:hover {
+  transform: scale(1.1);
+}
+
+/* Hide all labels by default */
+#themeForm > label {
+  display: none;
+}
+
+#themeForm input[type="radio"] {
+  display: none;
+}
+
+/* Show only the next theme option based on current selection */
+/* When light is checked, show dark */
+#themeForm:has([value="light"]:checked) label:has([value="dark"]) {
+  display: inline-block;
+}
+
+/* When dark is checked, show default */
+#themeForm:has([value="dark"]:checked) label:has([value="default"]) {
+  display: inline-block;
+}
+
+/* When default is checked (or nothing), show light */
+#themeForm:has([value="default"]:checked) label:has([value="light"]),
+#themeForm:not(:has([type="radio"]:checked)) label:has([value="light"]) {
+  display: inline-block;
+}
+
