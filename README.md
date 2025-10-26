@@ -4,7 +4,7 @@ See [the web page for complete documentation and examples.](https://jon49.github
 
 <nav>
   <a href="#introduction">Introduction</a> |
-  <a href="#documentation">Documentation</a> |
+  <a href="#documentation">Documentation</a>
 </nav>
 
 <h2 id="introduction">Introduction</h2>

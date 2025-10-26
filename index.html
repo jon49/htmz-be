@@ -85,8 +85,9 @@
         <p>When you do not have a root HTML element use the <code>template</code>
           element. This is useful for inserting table rows, list items, and other
           elements that do not have a single root element. When you return an
-          empty <code>template</code> it will delete the old template when you
-          use the strategy <code>replaceWith</code> (which is default, of course).</p>
+          empty <code>template</code> it will delete the old the element it is
+          replacing when you use the strategy <code>replaceWith</code> (which is
+          default).</p>
       </li>
     </ol>
 
@@ -165,7 +166,7 @@
 
     <p><a href="https://github.com/jon49/Soccer">For advanced usage please refer
     to my soccer application</a>. It shows that you can create rather complex
-    web applications with this pattern, including offline first PWA and highly
+    web applications with this pattern, including offline first PWA with highly
     dynamic data.</p>
 
     <p><strong>Features</strong></p>
@@ -175,9 +176,9 @@
       href="https://github.com/patrick-steele-idem/morphdom">Morphdom</a> to
       diff the returned HTML (in place of the swap type
       <code>replaceWith</code>).</li>
-      <li>It uses the <div
+      <li>It uses the <a
       href="https://github.com/ForbesLindesay/data-action"><code>data-action</code>
-      pattern</div> to define custom actions for elements.</li>
+      pattern</a> to define custom actions for elements.</li>
       <li>It uses the above pattern to anchor elements to where they are during
       submission. E.g., the Todo example above the input would stay in the same
       location on the screen.</li>
