@@ -114,6 +114,12 @@ dl dl {
   cursor: pointer;
 }
 
+.block {
+  display: block;
+}
+
+/* Theme Selector Styles */
+
 #themeForm {
   position: absolute;
   top: 1em;
