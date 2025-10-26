@@ -61,35 +61,37 @@
 
     <p>This implementation of HTMZ uses four APIs to determine how the updates are applied.</p>
 
-    <ol>
-      <li><code>id</code>
-        <p>The id attribute matches the element that will be updated. It
+    <dl>
+      <dt><code>id</code></dt>
+        <dd>The id attribute matches the element that will be updated. It
         replaces the original element with the new content. This is the
-        simplicist and easiest way to perform updates.</p>
-      </li>
-      <li><code>hz-target</code>
-        <p>uses the query selector to determine what element to update.</p>
-      </li>
-      <li><code>hz-swap</code>
-        <p>determines how the content is inserted. There are four different values which can be used:</p>
-        <ul>
-          <li><code>replaceWith</code> - replaces the content of the target
-          element (default). In practice this never needs to be explicit.</li>
-          <li><code>append</code> - appends the content to the end of the target element</li>
-          <li><code>prepend</code> - prepends the content to the beginning of the target element</li>
-          <li><code>before</code> - inserts the content before the target element</li>
-          <li><code>after</code> - inserts the content after the target element</li>
-        </ul>
-      </li>
-      <li><code>template</code>
-        <p>When you do not have a root HTML element use the <code>template</code>
-          element. This is useful for inserting table rows, list items, and other
-          elements that do not have a single root element. When you return an
-          empty <code>template</code> it will delete the old the element it is
+        simplicist and easiest way to perform updates.</dd>
+      <dt><code>hz-target</code></dt>
+        <dd>uses the query selector to determine what element to update.</dd>
+      <dt><code>hz-swap</code></dt>
+        <dd>determines how the content is inserted. There are four different values which can be used:</dd>
+        <dl>
+          <dt><code>replaceWith</code></dt>
+          <dd>replaces the original element with the new content (default). In practice this never needs to be explicit.</dd>
+          <dt><code>append</code></dt>
+          <dd>appends the content to the end of the target element</dd>
+          <dt><code>prepend</code></dt>
+          <dd>prepends the content to the beginning of the target element</dd>
+          <dt><code>before</code></dt>
+          <dd>inserts the content before the target element</dd>
+          <dt><code>after</code></dt>
+          <dd>inserts the content after the target element</dd>
+        </dl>
+      </dt>
+      <dt><code>template</code></dt>
+      <dd>When you do not have a root HTML element use the <code>template</code>
+        element. This is useful for inserting table rows, list items, and other
+        elements that do not have a single root element. When you return an
+        empty <code>template</code> it will delete the old the element it is
           replacing when you use the strategy <code>replaceWith</code> (which is
           default).</p>
-      </li>
-    </ol>
+      </dd>
+    </dl>
 
   <h2 id="examples">Examples</h2>
 
