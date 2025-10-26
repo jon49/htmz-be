@@ -63,7 +63,8 @@ export async function routeHandler(url, request) {
     ]
     let randomIndex = Math.floor(Math.random() * messages.length)
     let randomMessage = messages[randomIndex]
-    let content = html("linkResponse", `
+    let anotherLink = `<p hz-swap=after hz-target="#link"><a href="./link?another" target=htmz>Get another quote</a></p>`
+    let content = html("linkResponse", `${ url.searchParams.has("another") ? "" : anotherLink }
 <p id=link class="highlight"><strong>${randomMessage}</strong></p>`)
 
     return getResponse(content)
