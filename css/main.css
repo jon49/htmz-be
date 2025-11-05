@@ -10,6 +10,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html{
   padding: 1em;
   line-height: 1.75;
@@ -17,9 +21,11 @@ html{
   color: var(--text);
   background-color: var(--bg);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0;
 }
 
 body {
+  margin: 0;
   padding-bottom: 50vh;
 }
 
@@ -28,7 +34,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 main {
-  max-width: min(70ch, 100% - 4rem);
+  max-width: min(70ch, 95%);
   margin-inline: auto;
 }
 
@@ -46,6 +52,7 @@ input[type="password"],
 input:not([type]),
 textarea,
 select {
+  /* make width 100% of container */
   width: 100%;
   padding: 0.5em;
   font-size: 1em;
