@@ -168,6 +168,18 @@ dl dl {
 
 /* Nav */
 
+nav a {
+  text-decoration: none;
+}
+
+@media (max-width: 1400px) {
+  nav a:not(:last-child)::after {
+    content: "|";
+    margin: 0 0 0 0.5em;
+    color: var(--text);
+  }
+}
+
 @media (min-width: 1400px) {
   nav {
     display: flex;
@@ -181,9 +193,5 @@ dl dl {
     border-radius: 5px;
     box-shadow: 0 0 10px light-dark(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
     gap: 1em;
-
-    span {
-      display: none;
-    }
   }
 }
