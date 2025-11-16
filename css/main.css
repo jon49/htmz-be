@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   padding: 1em;
   line-height: 1.75;
   font-size: 1.25em;
@@ -126,7 +126,6 @@ dl dl {
 }
 
 /* Theme Selector Styles */
-
 #themeForm {
   position: absolute;
   top: 1em;
