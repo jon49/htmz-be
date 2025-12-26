@@ -22,7 +22,7 @@ export async function routeHandler(url, request) {
     let id = url.searchParams.get("id")
     let content = html("todoResponse", `
 <template id="${id}"></template>
-<p id=events class=highlight>Removed id: ${id}</p>`)
+<p id=events class=highlight>Removed id: ${id.slice(1)}</p>`)
 
     return getResponse(content) 
   }
